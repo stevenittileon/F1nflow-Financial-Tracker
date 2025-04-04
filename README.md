@@ -4,12 +4,12 @@ F1nflow is a lightweight, user-friendly web application that helps you track you
 
 
 ## Features
-	•	Dark mode UI for a comfortable user experience
-	•	Add and delete income/expense entries
-	•	Live financial summary (total income, expenses, and balance)
-	•	Interactive charts using Chart.js for visual insights
-	•	Monthly budget and overspending alerts
-	•	Clean and responsive design optimized for all devices
+	• Dark mode UI for a comfortable user experience
+	• Add and delete income/expense entries
+	• Live financial summary (total income, expenses, and balance)
+	• Interactive charts using Chart.js for visual insights
+	• Monthly budget and overspending alerts
+	• Clean and responsive design optimized for all devices
 
 
 ## Project Structure
@@ -20,29 +20,26 @@ F1nflow is a lightweight, user-friendly web application that helps you track you
 	├── style_light.css     # Custom light theme styles
 	└── script.js          # Application logic and interactivity
 
-## Prerequisites
-
-Steps
-
+## Steps
 
 	1. Clone or download the repository:
 
 	git clone https://github.com/yourusername/f1nflow.git
 
 
-	2.	Open the app:
-	• 	Simply open index.html in your browser.
-	•	All logic is handled client-side—no server setup needed.
+	2. Open the app:
+	•  Simply open index.html in your browser.
+	• All logic is handled client-side—no server setup needed.
 
 ## Technologies Used
-	•	HTML5
-	•	CSS3 (Dark Theme)
-	•	JavaScript (ES6+)
-	•	Chart.js – for dynamic data visualizations
+	• HTML5
+	• CSS3 (Dark Theme)
+	• JavaScript (ES6+)
+	• Chart.js – for dynamic data visualizations
 
 
-📌 To-Do / Upcoming Features
-	•	Local storage integration for persistent data
-	•	Category-based filtering and analytics
-	•	Export reports (CSV/PDF)
-	•	Integration with Google Sheets / APIs
+## To-Do / Upcoming Features
+	• Local storage integration for persistent data
+	• Category-based filtering and analytics
+	• Export reports (CSV/PDF)
+	• Integration with Google Sheets / APIs

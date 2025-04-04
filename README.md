@@ -1,4 +1,4 @@
-#F1nflow – Personal Finance Tracker
+# F1nflow – Personal Finance Tracker
 
 F1nflow is a lightweight, user-friendly web application that helps you track your personal finances with ease. Built with vanilla HTML, CSS (Dark Mode), and JavaScript, F1nflow offers a sleek interface for managing income, expenses, and visualizing your spending habits with dynamic charts.
 
@@ -12,7 +12,7 @@ F1nflow is a lightweight, user-friendly web application that helps you track you
 	•	🧹 Clean and responsive design optimized for all devices
 
 
-📁 Project Structure
+## Project Structure
 
 F1nflow/
 ├── index.html         # Main HTML layout
@@ -30,55 +30,26 @@ Prerequisites
 All you need is a modern web browser!
 
 Steps
-	1.	Clone or download the repository:
 
-git clone https://github.com/yourusername/f1nflow.git
+
+	1. Clone or download the repository:
+
+	git clone https://github.com/yourusername/f1nflow.git
 
 
 	2.	Open the app:
-	•	Simply open index.html in your browser.
+	• 	Simply open index.html in your browser.
 	•	All logic is handled client-side—no server setup needed.
 
-⸻
-
-⚙️ Technologies Used
+## Technologies Used
 	•	HTML5
 	•	CSS3 (Dark Theme)
 	•	JavaScript (ES6+)
 	•	Chart.js – for dynamic data visualizations
 
-⸻
-
-📸 Screenshots
-
-Dashboard	Expense Entry	Charts
-		
-
-Note: Add your own screenshots in a screenshots/ folder.
-
-⸻
 
 📌 To-Do / Upcoming Features
 	•	Local storage integration for persistent data
 	•	Category-based filtering and analytics
 	•	Export reports (CSV/PDF)
 	•	Integration with Google Sheets / APIs
-
-⸻
-
-🤝 Contributing
-
-Pull requests are welcome! If you’d like to contribute:
-	•	Fork the repo
-	•	Create a feature branch
-	•	Open a pull request 🎉
-
-⸻
-
-📄 License
-
-MIT License © 2025 [Your Name]
-
-⸻
-
-Let me know if you want to deploy this on GitHub Pages or add a logo/icon!

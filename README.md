@@ -4,30 +4,23 @@ F1nflow is a lightweight, user-friendly web application that helps you track you
 
 
 ## Features
-	•	🔥 Dark mode UI for a comfortable user experience
-	•	📝 Add and delete income/expense entries
-	•	📊 Live financial summary (total income, expenses, and balance)
-	•	📈 Interactive charts using Chart.js for visual insights
-	•	🧮 Monthly budget and overspending alerts
-	•	🧹 Clean and responsive design optimized for all devices
+	•	Dark mode UI for a comfortable user experience
+	•	Add and delete income/expense entries
+	•	Live financial summary (total income, expenses, and balance)
+	•	Interactive charts using Chart.js for visual insights
+	•	Monthly budget and overspending alerts
+	•	Clean and responsive design optimized for all devices
 
 
 ## Project Structure
 
-F1nflow/
-├── index.html         # Main HTML layout
-├── style_dark.css     # Custom dark theme styles
-├── style_light.css     # Custom light theme styles
-└── script.js          # Application logic and interactivity
+	F1nflow/
+	├── index.html         # Main HTML layout
+	├── style_dark.css     # Custom dark theme styles
+	├── style_light.css     # Custom light theme styles
+	└── script.js          # Application logic and interactivity
 
-
-
-
-🚀 Getting Started
-
-Prerequisites
-
-All you need is a modern web browser!
+## Prerequisites
 
 Steps
 

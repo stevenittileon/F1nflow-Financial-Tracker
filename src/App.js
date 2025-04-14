@@ -31,6 +31,9 @@ function AppContent() {
   const [currency, setCurrency] = useState(() => {
     return localStorage.getItem('currency') || '₹';
   });
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'dark';
+  });
   const { showSuccess, showInfo } = useNotification();
 
   useEffect(() => {
@@ -44,6 +47,15 @@ function AppContent() {
   useEffect(() => {
     localStorage.setItem('currency', currency);
   }, [currency]);
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark');
+  };
 
   const handleCurrencyChange = (e) => {
     const newCurrency = e.target.value;
@@ -119,6 +131,9 @@ function AppContent() {
           <button onClick={handleExportBudget} className="export-btn">
             Export Budget
           </button>
+          <button onClick={toggleTheme} className="theme-toggle">
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
         </div>
       </nav>
 
@@ -142,6 +157,7 @@ function AppContent() {
               budget={budget}
               expenses={expenses}
               currency={currency}
+              theme={theme} // Add this line to pass the theme
             />
           } 
         />

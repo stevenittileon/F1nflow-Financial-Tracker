@@ -122,7 +122,7 @@ function Visualizations({ budget, expenses, currency, theme }) {
       legend: {
         position: 'bottom',
         labels: {
-          color: theme === 'light' ? '#1a1a1a' : '#ffffff', // Dynamic text color based on theme
+          color: theme === 'light' ? '#1a1a1a' : '#ffffff', // Dynamic legend color
           font: {
             size: 12
           }
@@ -134,7 +134,12 @@ function Visualizations({ budget, expenses, currency, theme }) {
             return `${context.label}: ${formatCurrency(context.raw, currency)}`;
           }
         },
-        bodyColor: theme === 'light' ? '#1a1a1a' : '#ffffff' // Dynamic tooltip text color
+        bodyColor: theme === 'light' ? '#000000' : '#ffffff', // Black for light mode, white for dark mode
+        titleColor: theme === 'light' ? '#000000' : '#ffffff', // Match title color to body color
+        backgroundColor: theme === 'light' ? 'rgba(255, 255, 255, 0.9)' : 'rgba(0, 0, 0, 0.8)', // Light background for light mode, dark for dark mode
+        borderColor: theme === 'light' ? '#000000' : '#ffffff',
+        borderWidth: 1,
+        displayColors: true // Ensure the color box is shown
       }
     }
   };

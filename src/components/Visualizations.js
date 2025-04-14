@@ -16,7 +16,7 @@ ChartJS.register(
   RadialLinearScale
 );
 
-function Visualizations({ budget, expenses, currency }) {
+function Visualizations({ budget, expenses, currency, theme }) {
   const [chartType, setChartType] = useState('doughnut');
   const [dateRange, setDateRange] = useState('all');
 
@@ -114,6 +114,7 @@ function Visualizations({ budget, expenses, currency }) {
     }]
   };
 
+  // Dynamic chart options based on theme
   const chartOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -121,7 +122,7 @@ function Visualizations({ budget, expenses, currency }) {
       legend: {
         position: 'bottom',
         labels: {
-          color: '#ffffff',
+          color: theme === 'light' ? '#1a1a1a' : '#ffffff', // Dynamic text color based on theme
           font: {
             size: 12
           }
@@ -132,7 +133,8 @@ function Visualizations({ budget, expenses, currency }) {
           label: function(context) {
             return `${context.label}: ${formatCurrency(context.raw, currency)}`;
           }
-        }
+        },
+        bodyColor: theme === 'light' ? '#1a1a1a' : '#ffffff' // Dynamic tooltip text color
       }
     }
   };
@@ -209,4 +211,4 @@ function Visualizations({ budget, expenses, currency }) {
   );
 }
 
-export default Visualizations; 
+export default Visualizations;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Transactions.css';
 
-function Transactions({ budget, setBudget, expenses, setExpenses }) {
+function Transactions({ budget, setBudget, expenses, setExpenses, user }) {
   const [expenseTitle, setExpenseTitle] = useState('');
   const [expenseAmount, setExpenseAmount] = useState('');
   const [expenseCategory, setExpenseCategory] = useState('');
@@ -22,7 +22,8 @@ function Transactions({ budget, setBudget, expenses, setExpenses }) {
           title: expenseTitle,
           amount: amount,
           category: expenseCategory,
-          date: new Date().toLocaleDateString()
+          date: new Date().toLocaleDateString(),
+          userId: user
         };
         setExpenses(prevExpenses => [...prevExpenses, newExpense]);
         setExpenseTitle('');
@@ -36,7 +37,8 @@ function Transactions({ budget, setBudget, expenses, setExpenses }) {
     setExpenses(prevExpenses => prevExpenses.filter((_, i) => i !== index));
   };
 
-  const totalSpent = expenses.reduce((sum, exp) => sum + exp.amount, 0);
+  const userExpenses = expenses.filter(exp => exp.userId === user);
+  const totalSpent = userExpenses.reduce((sum, exp) => sum + exp.amount, 0);
   const remaining = budget - totalSpent;
   const percentageUsed = (totalSpent / budget) * 100;
 
@@ -140,7 +142,7 @@ function Transactions({ budget, setBudget, expenses, setExpenses }) {
           </Link>
         </div>
         <div className="expense-list">
-          {expenses.map((expense, index) => (
+          {userExpenses.map((expense, index) => (
             <div key={index} className="expense-item">
               <div>
                 <strong>{expense.title}</strong> <span>({expense.category})</span> <small>{expense.date}</small>
@@ -157,4 +159,4 @@ function Transactions({ budget, setBudget, expenses, setExpenses }) {
   );
 }
 
-export default Transactions; 
+export default Transactions;

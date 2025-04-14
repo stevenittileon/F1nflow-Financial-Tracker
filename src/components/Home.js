@@ -1,8 +1,9 @@
 import React from 'react';
 import { formatCurrency } from '../utils/currencyUtils';
 
-const Home = ({ budget, setBudget, expenses, setExpenses, currency, theme }) => {
-  const totalSpent = expenses.reduce((sum, exp) => sum + exp.amount, 0);
+const Home = ({ budget, setBudget, expenses, setExpenses, currency, theme, user }) => {
+  const userExpenses = expenses.filter(exp => exp.userId === user);
+  const totalSpent = userExpenses.reduce((sum, exp) => sum + exp.amount, 0);
   const remaining = budget - totalSpent;
 
   const handleAddExpense = (e) => {
@@ -11,7 +12,8 @@ const Home = ({ budget, setBudget, expenses, setExpenses, currency, theme }) => 
       description: e.target.description.value,
       amount: parseFloat(e.target.amount.value),
       category: e.target.category.value,
-      date: e.target.date.value
+      date: e.target.date.value,
+      userId: user
     };
     setExpenses([...expenses, expense]);
     e.target.reset();
@@ -111,7 +113,7 @@ const Home = ({ budget, setBudget, expenses, setExpenses, currency, theme }) => 
 
       <div className="expense-list">
         <h2>Recent Expenses</h2>
-        {expenses.map((expense, index) => (
+        {userExpenses.map((expense, index) => (
           <div key={index} className="expense-item">
             <div>
               <h3>{expense.description}</h3>
@@ -133,4 +135,4 @@ const Home = ({ budget, setBudget, expenses, setExpenses, currency, theme }) => 
   );
 };
 
-export default Home; 
+export default Home;

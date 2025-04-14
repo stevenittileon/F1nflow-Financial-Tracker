@@ -1,7 +1,10 @@
+/* App.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* Base styles */
 :root {
+  /* Dark theme (default) */
   --primary-color: #1a73e8;
   --primary-hover: #1557b0;
   --text-color: #ffffff;
@@ -21,6 +24,27 @@
   --chart-bg: #1e1e1e;
 }
 
+/* Updated light theme variables */
+[data-theme="light"] {
+  --primary-color: #1a73e8;
+  --primary-hover: #1557b0;
+  --text-color: #1a1a1a; /* Dark text for readability on light background */
+  --bg-color: #ffffff; /* Light background for the body */
+  --card-bg: #ffffff; /* White background for cards */
+  --border-color: #e0e0e0; /* Lighter border for light mode */
+  --input-bg: #ffffff; /* White background for inputs */
+  --input-border: #cccccc; /* Light gray border for inputs */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Softer shadow for light mode */
+  --secondary-text: #666666; /* Gray for secondary text */
+  --progress-bg: #e0e0e0; /* Light gray for progress bar background */
+  --delete-btn: #dc3545; /* Keep red for delete/reset buttons */
+  --delete-btn-hover: #c82333;
+  --header-bg: #ffffff; /* White header background */
+  --summary-bg: #ffffff; /* White summary background */
+  --nav-bg: #ffffff; /* White nav background */
+  --chart-bg: #ffffff; /* White chart background */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -28,9 +52,10 @@
   font-family: 'Inter', sans-serif;
 }
 
+/* Updated body to use theme variables */
 body {
-  background-color: #1a1a1a;
-  color: #ffffff;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   min-height: 100vh;
 }
 
@@ -44,6 +69,7 @@ body {
   margin: 0 auto;
 }
 
+/* Updated header styles */
 .header {
   background-color: var(--header-bg);
   padding: 20px;
@@ -67,8 +93,9 @@ body {
   margin-bottom: 25px;
 }
 
+/* Updated card styles to use theme variables */
 .card {
-  background-color: #2d2d2d;
+  background-color: var(--card-bg);
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 6px var(--shadow-color);
@@ -94,7 +121,7 @@ body {
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  color: #ffffff;
+  color: var(--text-color); /* Updated to use theme variable */
   font-weight: 500;
 }
 
@@ -103,16 +130,16 @@ body {
   width: 100%;
   padding: 12px;
   border-radius: 8px;
-  border: 1px solid #4d4d4d;
-  background-color: #3d3d3d;
-  color: #ffffff;
+  border: 1px solid var(--input-border); /* Updated to use theme variable */
+  background-color: var(--input-bg); /* Updated to use theme variable */
+  color: var(--text-color); /* Updated to use theme variable */
   font-size: 1rem;
 }
 
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  border-color: #6d6d6d;
+  border-color: var(--primary-color); /* Consistent focus color */
 }
 
 .button-group {
@@ -121,28 +148,29 @@ body {
   margin-top: 30px;
 }
 
+/* Updated button styles to use theme variables */
 button {
   padding: 12px 24px;
   border: none;
   border-radius: 8px;
-  background: #3d3d3d;
-  color: white;
+  background: var(--primary-color); /* Updated to use theme variable */
+  color: var(--bg-color); /* Updated for contrast with button background */
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 button:hover {
-  background: #4d4d4d;
+  background: var(--primary-hover);
   transform: translateY(-2px);
 }
 
 .reset-btn {
-  background: #ff4444;
+  background: var(--delete-btn);
 }
 
 .reset-btn:hover {
-  background: #ff5555;
+  background: var(--delete-btn-hover);
 }
 
 .delete-btn {
@@ -281,7 +309,7 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: var(--card-bg);
+  background-color: var(--nav-bg); /* Updated to use theme variable */
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 2rem;
 }
@@ -292,7 +320,7 @@ button:hover {
 }
 
 .nav-link {
-  color: var(--text-color);
+  color: var(--text-color); /* Updated to use theme variable */
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
@@ -302,13 +330,13 @@ button:hover {
 }
 
 .nav-link:hover {
-  background-color: var(--input-bg);
+  background-color: var(--input-bg); /* Updated to use theme variable */
   color: var(--primary-color);
 }
 
 .nav-link.active {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--bg-color); /* Updated for contrast */
 }
 
 .nav-right {
@@ -452,11 +480,11 @@ button:hover {
 }
 
 .summary-card {
-  background-color: #2d2d2d;
+  background-color: var(--card-bg);
   border-radius: 12px;
   padding: 25px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px var(--shadow-color);
   transition: transform 0.3s ease;
 }
 
@@ -466,20 +494,20 @@ button:hover {
 
 .summary-card h3 {
   font-size: 1rem;
-  color: #b3b3b3;
+  color: var(--secondary-text);
   margin-bottom: 15px;
 }
 
 .summary-card p {
   font-size: 1.8rem;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 /* Update button styles */
 button {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--bg-color);
 }
 
 button:hover {
@@ -623,11 +651,11 @@ button:hover {
 }
 
 /* Remove light theme specific styles */
-.App.light,
+/* .App.light,
 html[data-theme="light"],
 .visualizations-container.light {
   display: none;
-}
+} */
 
 /* Recurring Payments Styles */
 .recurring-payments-list {
@@ -710,7 +738,6 @@ html[data-theme="light"],
   background-color: var(--card-bg);
   padding: 1.5rem;
   border-radius: 8px;
-  text-align: center;
   border: 1px solid var(--border-color);
 }
 
@@ -758,7 +785,7 @@ html[data-theme="light"],
 .chart-title {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .chart-controls {
@@ -845,3 +872,27 @@ html[data-theme="light"],
     height: 300px;
   }
 }
+
+/* Add toggle button styles */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Remove light theme specific styles */
+/* .App.light,
+html[data-theme="light"],
+.visualizations-container.light {
+  display: none;
+} */

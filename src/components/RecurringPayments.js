@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { formatCurrency } from '../utils/currencyUtils';
 
-const RecurringPayments = ({ expenses, setExpenses, currency }) => {
-  const [recurringPayments, setRecurringPayments] = useState([]);
+const RecurringPayments = ({ expenses, setExpenses, currency, user }) => {
+  const [recurringPayments, setRecurringPayments] = useState(() => {
+    const savedPayments = localStorage.getItem(`recurringPayments_${user}`) || '[]';
+    return JSON.parse(savedPayments);
+  });
   const [formData, setFormData] = useState({
     description: '',
     amount: '',
@@ -13,9 +16,13 @@ const RecurringPayments = ({ expenses, setExpenses, currency }) => {
   });
 
   useEffect(() => {
-    const savedPayments = JSON.parse(localStorage.getItem('recurringPayments')) || [];
+    const savedPayments = JSON.parse(localStorage.getItem(`recurringPayments_${user}`)) || [];
     setRecurringPayments(savedPayments);
-  }, []);
+  }, [user]);
+
+  useEffect(() => {
+    localStorage.setItem(`recurringPayments_${user}`, JSON.stringify(recurringPayments));
+  }, [recurringPayments, user]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -30,12 +37,13 @@ const RecurringPayments = ({ expenses, setExpenses, currency }) => {
     const newPayment = {
       ...formData,
       id: Date.now(),
-      amount: parseFloat(formData.amount)
+      amount: parseFloat(formData.amount),
+      userId: user
     };
     
     const updatedPayments = [...recurringPayments, newPayment];
     setRecurringPayments(updatedPayments);
-    localStorage.setItem('recurringPayments', JSON.stringify(updatedPayments));
+    localStorage.setItem(`recurringPayments_${user}`, JSON.stringify(updatedPayments));
     
     setFormData({
       description: '',
@@ -50,8 +58,10 @@ const RecurringPayments = ({ expenses, setExpenses, currency }) => {
   const handleDelete = (id) => {
     const updatedPayments = recurringPayments.filter(payment => payment.id !== id);
     setRecurringPayments(updatedPayments);
-    localStorage.setItem('recurringPayments', JSON.stringify(updatedPayments));
+    localStorage.setItem(`recurringPayments_${user}`, JSON.stringify(updatedPayments));
   };
+
+  const userRecurringPayments = recurringPayments.filter(payment => payment.userId === user);
 
   return (
     <div className="card">
@@ -134,7 +144,7 @@ const RecurringPayments = ({ expenses, setExpenses, currency }) => {
 
       <div className="recurring-payments-list">
         <h3>Active Recurring Payments</h3>
-        {recurringPayments.map(payment => (
+        {userRecurringPayments.map(payment => (
           <div key={payment.id} className="recurring-payment-item">
             <div className="payment-info">
               <h4>{payment.description}</h4>
@@ -159,4 +169,4 @@ const RecurringPayments = ({ expenses, setExpenses, currency }) => {
   );
 };
 
-export default RecurringPayments; 
+export default RecurringPayments;

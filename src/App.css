@@ -1,4 +1,57 @@
-/* App.css */
+/* App.css (existing content remains, add the following at the end) */
+
+/* Login styles */
+.login-container {
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  text-align: center;
+}
+
+.login-container h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.login-container .form-group {
+  margin-bottom: 15px;
+}
+
+.login-container label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.login-container button {
+  padding: 12px 24px;
+  background: var(--primary-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-container button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* App.css (rest of the original content remains unchanged) */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -28,21 +81,21 @@
 [data-theme="light"] {
   --primary-color: #1a73e8;
   --primary-hover: #1557b0;
-  --text-color: #1a1a1a; /* Dark text for readability on light background */
-  --bg-color: #ffffff; /* Light background for the body */
-  --card-bg: #ffffff; /* White background for cards */
-  --border-color: #e0e0e0; /* Lighter border for light mode */
-  --input-bg: #ffffff; /* White background for inputs */
-  --input-border: #cccccc; /* Light gray border for inputs */
-  --shadow-color: rgba(0, 0, 0, 0.1); /* Softer shadow for light mode */
-  --secondary-text: #666666; /* Gray for secondary text */
-  --progress-bg: #e0e0e0; /* Light gray for progress bar background */
-  --delete-btn: #dc3545; /* Keep red for delete/reset buttons */
+  --text-color: #1a1a1a;
+  --bg-color: #ffffff;
+  --card-bg: #ffffff;
+  --border-color: #e0e0e0;
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --secondary-text: #666666;
+  --progress-bg: #e0e0e0;
+  --delete-btn: #dc3545;
   --delete-btn-hover: #c82333;
-  --header-bg: #ffffff; /* White header background */
-  --summary-bg: #ffffff; /* White summary background */
-  --nav-bg: #ffffff; /* White nav background */
-  --chart-bg: #ffffff; /* White chart background */
+  --header-bg: #ffffff;
+  --summary-bg: #ffffff;
+  --nav-bg: #ffffff;
+  --chart-bg: #ffffff;
 }
 
 * {
@@ -121,7 +174,7 @@ body {
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  color: var(--text-color); /* Updated to use theme variable */
+  color: var(--text-color);
   font-weight: 500;
 }
 
@@ -130,16 +183,16 @@ body {
   width: 100%;
   padding: 12px;
   border-radius: 8px;
-  border: 1px solid var(--input-border); /* Updated to use theme variable */
-  background-color: var(--input-bg); /* Updated to use theme variable */
-  color: var(--text-color); /* Updated to use theme variable */
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--text-color);
   font-size: 1rem;
 }
 
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  border-color: var(--primary-color); /* Consistent focus color */
+  border-color: var(--primary-color);
 }
 
 .button-group {
@@ -153,8 +206,8 @@ button {
   padding: 12px 24px;
   border: none;
   border-radius: 8px;
-  background: var(--primary-color); /* Updated to use theme variable */
-  color: var(--bg-color); /* Updated for contrast with button background */
+  background: var(--primary-color);
+  color: var(--bg-color);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -309,7 +362,7 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: var(--nav-bg); /* Updated to use theme variable */
+  background-color: var(--nav-bg);
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 2rem;
 }
@@ -320,7 +373,7 @@ button:hover {
 }
 
 .nav-link {
-  color: var(--text-color); /* Updated to use theme variable */
+  color: var(--text-color);
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
@@ -330,13 +383,13 @@ button:hover {
 }
 
 .nav-link:hover {
-  background-color: var(--input-bg); /* Updated to use theme variable */
+  background-color: var(--input-bg);
   color: var(--primary-color);
 }
 
 .nav-link.active {
   background-color: var(--primary-color);
-  color: var(--bg-color); /* Updated for contrast */
+  color: var(--bg-color);
 }
 
 .nav-right {

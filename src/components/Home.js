@@ -1,16 +1,36 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { formatCurrency } from '../utils/currencyUtils';
+import { useNotification } from '../context/NotificationContext';
 
 const Home = ({ budget, setBudget, expenses, setExpenses, currency, theme, user }) => {
+  const { showInfo } = useNotification();
+  const notificationShown = useRef(false);
   const userExpenses = expenses.filter(exp => exp.userId === user);
   const totalSpent = userExpenses.reduce((sum, exp) => sum + exp.amount, 0);
   const remaining = budget - totalSpent;
 
+  useEffect(() => {
+    if (remaining < 0 && !notificationShown.current) {
+      showInfo(`Warning: You have exceeded your daily budget by ${formatCurrency(Math.abs(remaining), currency)}`);
+      notificationShown.current = true;
+    } else if (remaining >= 0) {
+      notificationShown.current = false;
+    }
+  }, [remaining, currency, showInfo]);
+
   const handleAddExpense = (e) => {
     e.preventDefault();
+    const amount = parseFloat(e.target.amount.value);
+    
+    // Prevent transaction if it would exceed budget
+    if (totalSpent + amount > budget) {
+      showInfo(`Transaction cancelled: This expense of ${formatCurrency(amount, currency)} would exceed your budget by ${formatCurrency(totalSpent + amount - budget, currency)}`);
+      return;
+    }
+    
     const expense = {
       description: e.target.description.value,
-      amount: parseFloat(e.target.amount.value),
+      amount: amount,
       category: e.target.category.value,
       date: e.target.date.value,
       userId: user
